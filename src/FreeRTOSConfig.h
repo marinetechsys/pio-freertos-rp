@@ -265,8 +265,8 @@ void rtosFatalError(void);
 
 extern "C"
 {
-    extern void vPortPreSleep(TickType_t expectedIdle);
-    extern void vPortPostSleep(TickType_t expectedIdle);
+    extern void vPortPreSleep(unsigned long expectedIdle);
+    extern void vPortPostSleep(unsigned long expectedIdle);
 }
 
 #ifndef configPRE_SLEEP_PROCESSING

@@ -195,12 +195,12 @@ static uint8_t ucPrimaryCoreNum = INVALID_PRIMARY_CORE_NUM;
 #define portIS_FREE_RTOS_CORE()    ( ucPrimaryCoreNum == get_core_num() )
 #endif
 
-__attribute__( ( weak ) )  void vPortPreSleep(TickType_t expectedIdle)
+__attribute__( ( weak ) )  void vPortPreSleep(unsigned long expectedIdle)
 {
 
 }
 
-__attribute__( ( weak ) )  void vPortPostSleep(TickType_t expectedIdle)
+__attribute__( ( weak ) )  void vPortPostSleep(unsigned long expectedIdle)
 {
 
 }
