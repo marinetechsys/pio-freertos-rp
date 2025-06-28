@@ -263,11 +263,14 @@ void rtosFatalError(void);
 #define LIB_PICO_MULTICORE 1
 #endif
 
-extern "C"
-{
+#ifdef __cplusplus
+extern "C" {
+#endif
     extern void vPortPreSleep(unsigned long expectedIdle);
     extern void vPortPostSleep(unsigned long expectedIdle);
-}
+#ifdef __cplusplus
+};
+#endif
 
 #ifndef configPRE_SLEEP_PROCESSING
 #define configPRE_SLEEP_PROCESSING( x ) vPortPreSleep(x)
