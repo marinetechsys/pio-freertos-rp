@@ -259,6 +259,8 @@ void rtosFatalError(void);
 #define configSUPPORT_PICO_TIME_INTEROP      1
 #endif
 
+#ifndef configPICO_SYNC_INTEROP
+
 #ifndef LIB_PICO_MULTICORE
 #define LIB_PICO_MULTICORE 1
 #endif
