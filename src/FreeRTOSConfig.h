@@ -240,7 +240,7 @@ extern unsigned long ulMainGetRunTimeCounterValue(void);
 #ifdef __cplusplus
 extern "C" {
 #endif
-void rtosFatalError(void);
+    void rtosFatalError(void);
 #ifdef __cplusplus
 };
 #endif
@@ -259,27 +259,16 @@ void rtosFatalError(void);
 #define configSUPPORT_PICO_TIME_INTEROP      1
 #endif
 
-#ifndef configPICO_SYNC_INTEROP
+#define SUPPORT_PICO_POWERSAVE_LVL0    0
+#define SUPPORT_PICO_POWERSAVE_LVL1    1
+#define SUPPORT_PICO_POWERSAVE_LVL2    2
+
+#ifndef configSUPPORT_PICO_POWERSAVE
+#define configSUPPORT_PICO_POWERSAVE         SUPPORT_PICO_POWERSAVE_LVL2
+#endif
 
 #ifndef LIB_PICO_MULTICORE
 #define LIB_PICO_MULTICORE 1
-#endif
-
-#ifdef __cplusplus
-extern "C" {
-#endif
-    extern void vPortPreSleep(unsigned long expectedIdle);
-    extern void vPortPostSleep(unsigned long expectedIdle);
-#ifdef __cplusplus
-};
-#endif
-
-#ifndef configPRE_SLEEP_PROCESSING
-#define configPRE_SLEEP_PROCESSING( x ) vPortPreSleep(x)
-#endif
-
-#ifndef configPOST_SLEEP_PROCESSING
-#define configPOST_SLEEP_PROCESSING( x ) vPortPostSleep(x)
 #endif
 
 #include "rp2040_config.h"
